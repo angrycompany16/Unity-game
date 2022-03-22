@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7914833119492849377, guid: 80c98e56a92e500a1ac01442b1179827, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 8d3e7d2713ccc67678a8ef56451a802d, type: 3}
     - target: {fileID: 2808695204463353485, guid: 80c98e56a92e500a1ac01442b1179827, type: 3}
       propertyPath: RotationModule.enabled
       value: 1

@@ -488,7 +488,10 @@ MonoBehaviour:
   hpBar: {fileID: 7821473630499714558}
   playerHpBar: {fileID: 0}
   gameManager: {fileID: 0}
+  playerSprite: {fileID: 0}
+  deathObject: {fileID: 7723869415357786529, guid: 0fe12e9323c3a84d7bc6df605f430110, type: 3}
   spawner: {fileID: 0}
+  iFrames: 0
 --- !u!114 &7821473630499714558
 MonoBehaviour:
   m_ObjectHideFlags: 0

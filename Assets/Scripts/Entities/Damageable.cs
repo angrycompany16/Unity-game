@@ -11,6 +11,9 @@ public class Damageable : MonoBehaviour
     [SerializeField] HPbar hpBar;
     [SerializeField] PlayerHPbar playerHpBar;
     [SerializeField] GameManager gameManager;
+    [SerializeField] SpriteRenderer playerSprite;
+
+    [SerializeField] GameObject deathObject;
 
     public SpawnObjects spawner;
 
@@ -47,6 +50,7 @@ public class Damageable : MonoBehaviour
         
         if (iFrames > 0) {
             StartCoroutine(InvincibilityFrames(iFrames));
+            StartCoroutine(Blink(iFrames * 0.9f, iFrames * 0.9f / 20));
         }
 
         if (currentHealth <= 0) {
@@ -55,6 +59,8 @@ public class Damageable : MonoBehaviour
     }
 
     void Die() {
+        if (deathObject != null) { Instantiate(deathObject, transform.position, Quaternion.identity); }
+
         if (isPlayer) {
             spawner.enabled = false;
             gameManager.Reset();
@@ -76,8 +82,11 @@ public class Damageable : MonoBehaviour
 
     IEnumerator Blink(float duration, float interval) {
         float t = 0;
-        while (t < interval) {
-            
+        while (t < duration) {
+            playerSprite.enabled = !playerSprite.enabled;
+            yield return new WaitForSeconds(interval);
+            t += interval;            
+            yield return null;
         }
     }
 }

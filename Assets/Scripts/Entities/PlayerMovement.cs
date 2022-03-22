@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] CameraMovement camMovement;
 
+    [SerializeField] AudioSource playerShoot;
+
     void Update()
     {
         MovePlayer();
@@ -45,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void Shoot() {
+        playerShoot.Play();
         StartCoroutine(camMovement.Shake(0.15f, 0.5f));
         Vector2 lookDir = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         lookDir.Normalize();
